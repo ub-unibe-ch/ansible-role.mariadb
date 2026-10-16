@@ -4,6 +4,7 @@ This is a fork of [geerlingguy/ansible-role-mysql](https://github.com/geerlinggu
 
 - The deprecated `community.mysql` modules (`mysql_user`, `mysql_db`, `mysql_replication`) are replaced by `ansible.mariadb.mariadb_user`, `ansible.mariadb.mariadb_db` and `ansible.mariadb.mariadb_replication`. The replication tasks are not used by us and not tested.
 - CI runs `.github/workflows/build.yml` (yamllint and Molecule with `converge-mariadb.yml` on Ubuntu 22.04, 24.04 and 26.04). The release, stale and funding files were removed. `ansible-lint` is not used.
+- The role is renamed to `ub_unibe_ch.mariadb` (`meta/main.yml`, converge files and the examples below), and `min_ansible_version` is 2.16, as required by `ansible.mariadb`.
 
 [![Build](https://github.com/ub-unibe-ch/ansible-role.mariadb/actions/workflows/build.yml/badge.svg)](https://github.com/ub-unibe-ch/ansible-role.mariadb/actions/workflows/build.yml)
 
@@ -16,7 +17,7 @@ No special requirements; note that this role requires root access, so either run
 ```yaml
 - hosts: database
   roles:
-    - role: geerlingguy.mysql
+    - role: ub_unibe_ch.mariadb
       become: true
 ```
 
@@ -215,7 +216,7 @@ The role uses the `ansible.mariadb` collection (included in `ansible`). If you h
       vars_files:
         - vars/main.yml
       roles:
-        - { role: geerlingguy.mysql }
+        - { role: ub_unibe_ch.mariadb }
 
 *Inside `vars/main.yml`*:
 
