@@ -1,0 +1,9 @@
+ansible==14.5.0
+yamllint==1.*
+molecule==26.*
+molecule-plugins[docker]==25.*
+docker==7.*
+passlib==1.*
+jmespath==1.*
+xmltodict==1.*
+requests==2.*
