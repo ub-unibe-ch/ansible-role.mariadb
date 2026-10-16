@@ -2,12 +2,12 @@
 dependencies: []
 
 galaxy_info:
-  role_name: mysql
-  author: geerlingguy
-  description: MySQL server for RHEL/CentOS and Debian/Ubuntu.
+  role_name: mariadb
+  author: ub_unibe_ch
+  description: MariaDB server for Debian/Ubuntu (fork of geerlingguy.mysql).
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.12
+  min_ansible_version: "2.16"
   platforms:
     - name: Ubuntu
       versions:

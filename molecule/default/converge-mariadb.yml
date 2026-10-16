@@ -16,7 +16,7 @@
       when: ansible_facts.os_family == 'Debian'
 
   roles:
-    - role: geerlingguy.mysql
+    - role: ub_unibe_ch.mariadb
 
   post_tasks:
     - name: Make sure we can connect to MariaDB via Unix socket.
