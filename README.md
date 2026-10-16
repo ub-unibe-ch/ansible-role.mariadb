@@ -1,6 +1,11 @@
-# Ansible Role: MySQL
+# Ansible Role: MySQL (UB Bern fork)
 
-[![CI](https://github.com/geerlingguy/ansible-role-mysql/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-mysql/actions/workflows/ci.yml)
+This is a fork of [geerlingguy/ansible-role-mysql](https://github.com/geerlingguy/ansible-role-mysql) 6.5.0. Our changes to upstream:
+
+- The deprecated `community.mysql` modules (`mysql_user`, `mysql_db`, `mysql_replication`) are replaced by `ansible.mariadb.mariadb_user`, `ansible.mariadb.mariadb_db` and `ansible.mariadb.mariadb_replication`. The replication tasks are not tested.
+- CI runs `.github/workflows/build.yml` (yamllint and Molecule with `converge-mariadb.yml` on Ubuntu 22.04, 24.04 and 26.04). The release, stale and funding files were removed. `ansible-lint` is not used.
+
+[![Build](https://github.com/ub-unibe-ch/ansible-role.mariadb/actions/workflows/build.yml/badge.svg)](https://github.com/ub-unibe-ch/ansible-role.mariadb/actions/workflows/build.yml)
 
 Installs and configures MySQL or MariaDB server on RHEL/CentOS or Debian/Ubuntu servers.
 
@@ -201,7 +206,7 @@ On Ubuntu, the package names are named differently, so the `mysql_package` varia
 
 If you have `ansible` installed (e.g. `pip3 install ansible`), none.
 
-If you have only installed `ansible-core`, be sure to require `community.mysql` in your `collections/requirements.yml` or install it manually with `ansible-galaxy collection install community.mysql`.
+The role uses the `ansible.mariadb` collection (included in `ansible`). If you have only installed `ansible-core`, be sure to require `ansible.mariadb` in your `collections/requirements.yml` or install it manually with `ansible-galaxy collection install ansible.mariadb`.
 
 ## Example Playbook
 
